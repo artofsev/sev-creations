@@ -1,7 +1,7 @@
 ---
 titre: "Brume de printemps"
 categorie: bijoux
-image: ./brume-de-printemps.jpg
+# image: ./brume-de-printemps.jpg   (caché temporairement le 2026-11-08 — enlever « # » pour remettre en ligne)
 technique: "Bracelet macramé en coton ciré tressé, perles"
 prix: 5
 disponible: true
