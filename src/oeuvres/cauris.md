@@ -1,7 +1,7 @@
 ---
 titre: "Cauris"
 categorie: bijoux
-image: ./cauris.jpg
+# image: ./cauris.jpg   (caché temporairement le 2026-11-08 — enlever « # » pour remettre en ligne)
 technique: "Bracelet macramé en coton ciré tressé, coquillages cauris et perles"
 prix: 5
 disponible: true
