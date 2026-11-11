@@ -10,6 +10,8 @@ export const SITE = {
   // Laisser vide ('') pour masquer Instagram sur le site.
   instagram: '',
   instagramPseudo: '',
+  // Ma boutique Redbubble (t-shirts, sweats, stickers… avec mes dessins), affichée dans la rubrique Textile.
+  redbubble: 'https://www.redbubble.com/fr/people/sev3412/shop',
 };
 
 export const CATEGORIES = [

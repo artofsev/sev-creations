@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Grille from '../../components/Grille.astro';
 import FiltreCategories from '../../components/FiltreCategories.astro';
+import Redbubble from '../../components/Redbubble.astro';
 import { CATEGORIES } from '../../site';
 import { toutesLesOeuvres } from '../../oeuvres';
 
@@ -21,7 +22,8 @@ const oeuvres = (await toutesLesOeuvres()).filter((o) => o.data.categorie === ca
       <h1>{cat.nom}</h1>
       <p class="lead">{cat.intro}</p>
       <FiltreCategories actif={cat.id} />
-      {oeuvres.length > 0 ? <Grille oeuvres={oeuvres} /> : <p>Les premières œuvres arrivent bientôt.</p>}
+      {oeuvres.length > 0 ? <Grille oeuvres={oeuvres} /> : cat.id !== 'textile' && <p>Les premières œuvres arrivent bientôt.</p>}
+      {cat.id === 'textile' && <Redbubble />}
     </div>
   </section>
 </Base>
