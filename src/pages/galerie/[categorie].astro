@@ -3,13 +3,14 @@ import Base from '../../layouts/Base.astro';
 import Grille from '../../components/Grille.astro';
 import FiltreCategories from '../../components/FiltreCategories.astro';
 import Redbubble from '../../components/Redbubble.astro';
-import { CATEGORIES } from '../../site';
+import { CATEGORIES, SITE } from '../../site';
 import { toutesLesOeuvres } from '../../oeuvres';
 
 export function getStaticPaths() {
   return CATEGORIES.map((c) => ({ params: { categorie: c.id }, props: { cat: c } }));
 }
 const { cat } = Astro.props;
+const afficherRedbubble = cat.id === 'textile' && SITE.redbubbleVisible;
 const oeuvres = (await toutesLesOeuvres()).filter((o) => o.data.categorie === cat.id);
 ---
 <Base
@@ -22,8 +23,8 @@ const oeuvres = (await toutesLesOeuvres()).filter((o) => o.data.categorie === ca
       <h1>{cat.nom}</h1>
       <p class="lead">{cat.intro}</p>
       <FiltreCategories actif={cat.id} />
-      {oeuvres.length > 0 ? <Grille oeuvres={oeuvres} /> : cat.id !== 'textile' && <p>Les premières œuvres arrivent bientôt.</p>}
-      {cat.id === 'textile' && <Redbubble />}
+      {oeuvres.length > 0 ? <Grille oeuvres={oeuvres} /> : !afficherRedbubble && <p>Les premières œuvres arrivent bientôt.</p>}
+      {afficherRedbubble && <Redbubble />}
     </div>
   </section>
 </Base>

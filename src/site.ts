@@ -12,6 +12,8 @@ export const SITE = {
   instagramPseudo: '',
   // Ma boutique Redbubble (t-shirts, sweats, stickers… avec mes dessins), affichée dans la rubrique Textile.
   redbubble: 'https://www.redbubble.com/fr/people/sev3412/shop',
+  // Mettre true quand Redbubble aura validé la boutique, pour afficher l'encadré dans la rubrique Textile.
+  redbubbleVisible: false,
 };
 
 export const CATEGORIES = [
