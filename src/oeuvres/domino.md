@@ -1,7 +1,7 @@
 ---
 titre: "Domino"
 categorie: bijoux
-image: ./domino.jpg
+# image: ./domino.jpg   (caché temporairement le 2026-11-11 — enlever « # » pour remettre en ligne)
 technique: "Bracelet macramé en coton ciré tressé"
 prix: 2
 disponible: true
