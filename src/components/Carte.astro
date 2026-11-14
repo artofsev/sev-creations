@@ -1,7 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import { CATEGORIES } from '../site';
+import { CATEGORIES, SITE } from '../site';
 
 interface Props {
   oeuvre: CollectionEntry<'oeuvres'>;
@@ -25,7 +25,7 @@ const categorie = CATEGORIES.find((c) => c.id === d.categorie)?.nom;
     {afficherCategorie && <span class="cat">{categorie}</span>}
     <span class="titre">{d.titre}</span>
     {d.technique && <span class="tech">{d.technique}</span>}
-    {d.disponible && <span class="dispo">Disponible</span>}
+    {d.disponible && (d.categorie !== 'bijoux' || SITE.venteBijouxVisible) && <span class="dispo">Disponible</span>}
   </div>
 </a>
 

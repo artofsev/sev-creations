@@ -13,6 +13,8 @@ const { oeuvre } = Astro.props;
 const d = oeuvre.data;
 const cat = CATEGORIES.find((c) => c.id === d.categorie)!;
 const { Content } = await render(oeuvre);
+// Bijoux : la vente peut être cachée (réglage venteBijouxVisible dans src/site.ts).
+const venteCachee = d.categorie === 'bijoux' && !SITE.venteBijouxVisible;
 const partage = await getImage({ src: d.image, width: 1200, format: 'jpg' });
 const sujet = encodeURIComponent(d.titre);
 ---
@@ -42,11 +44,11 @@ const sujet = encodeURIComponent(d.titre);
             {d.technique && <><dt>Technique</dt><dd>{d.technique}</dd></>}
             {d.dimensions && <><dt>Dimensions</dt><dd>{d.dimensions}</dd></>}
             {d.annee && <><dt>Année</dt><dd>{d.annee}</dd></>}
-            {d.prix && d.disponible && (d.categorie !== 'bijoux' || SITE.prixBijouxVisible) && <><dt>Prix</dt><dd>{d.prix} €</dd></>}
-            <dt>Statut</dt><dd>{d.disponible ? 'Disponible à la vente' : 'Vendue ou non disponible'}</dd>
+            {d.prix && d.disponible && !venteCachee && (d.categorie !== 'bijoux' || SITE.prixBijouxVisible) && <><dt>Prix</dt><dd>{d.prix} €</dd></>}
+            {!venteCachee && <><dt>Statut</dt><dd>{d.disponible ? 'Disponible à la vente' : 'Vendue ou non disponible'}</dd></>}
           </dl>
           <div class="texte"><Content /></div>
-          {d.disponible && (
+          {d.disponible && !venteCachee && (
             <div class="achat">
               <p class="achat-titre">Comment acheter ?</p>
               <p>Cliquez sur « Je suis intéressé(e) » : je vous réponds pour convenir de la livraison ou du retrait.</p>
@@ -54,9 +56,11 @@ const sujet = encodeURIComponent(d.titre);
             </div>
           )}
           <div class="btn-row">
-            <a class="btn" href={`/contact/?oeuvre=${sujet}`}>
-              {d.disponible ? 'Je suis intéressé(e)' : 'Commander une création similaire'}
-            </a>
+            {!venteCachee && (
+              <a class="btn" href={`/contact/?oeuvre=${sujet}`}>
+                {d.disponible ? 'Je suis intéressé(e)' : 'Commander une création similaire'}
+              </a>
+            )}
             <a class="btn btn--ghost" href={`/galerie/${cat.id}/`}>Retour à {cat.nom.toLowerCase()}</a>
           </div>
         </div>

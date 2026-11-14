@@ -16,6 +16,8 @@ export const SITE = {
   redbubbleVisible: false,
   // Mettre true pour réafficher les prix sur les fiches des bijoux (les prix restent notés dans chaque fiche).
   prixBijouxVisible: false,
+  // Mettre true pour réafficher que les bijoux sont en vente (« Disponible », « Comment acheter ? », bouton « Je suis intéressé(e) »).
+  venteBijouxVisible: false,
 };
 
 export const CATEGORIES = [
