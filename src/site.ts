@@ -14,6 +14,8 @@ export const SITE = {
   redbubble: 'https://www.redbubble.com/fr/people/sev3412/shop',
   // Mettre true quand Redbubble aura validé la boutique, pour afficher l'encadré dans la rubrique Textile.
   redbubbleVisible: false,
+  // Mettre true pour réafficher les prix sur les fiches des bijoux (les prix restent notés dans chaque fiche).
+  prixBijouxVisible: false,
 };
 
 export const CATEGORIES = [
