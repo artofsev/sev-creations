@@ -13,7 +13,7 @@ export const SITE = {
   // Ma boutique Redbubble (t-shirts, sweats, stickers… avec mes dessins), affichée dans la rubrique Textile.
   redbubble: 'https://www.redbubble.com/fr/people/sev3412/shop',
   // Mettre true quand Redbubble aura validé la boutique, pour afficher l'encadré dans la rubrique Textile.
-  redbubbleVisible: false,
+  redbubbleVisible: true,
   // Mettre true pour réafficher les prix sur les fiches des bijoux (les prix restent notés dans chaque fiche).
   prixBijouxVisible: false,
   // Mettre true pour réafficher que les bijoux sont en vente (« Disponible », « Comment acheter ? », bouton « Je suis intéressé(e) »).
