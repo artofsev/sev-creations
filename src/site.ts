@@ -16,11 +16,13 @@ export const SITE = {
   redbubbleVisible: true,
   // Mettre true pour réafficher les prix sur les fiches des bijoux (les prix restent notés dans chaque fiche).
   prixBijouxVisible: false,
+  // Mettre true pour remettre la rubrique Bijoux sur ce site (retirée le 19/11/2026 : les bijoux ont leur propre site).
+  bijouxVisible: false,
   // Mettre true pour réafficher que les bijoux sont en vente (« Disponible », « Comment acheter ? », bouton « Je suis intéressé(e) »).
   venteBijouxVisible: false,
 };
 
-export const CATEGORIES = [
+export const TOUTES_CATEGORIES = [
   { id: 'dessin', nom: 'Dessin', intro: 'Crayon, fusain et pastel : le trait dans tous ses états.' },
   { id: 'peinture', nom: 'Peinture', intro: 'Acrylique, aquarelle et couleurs franches sur toile et papier.' },
   { id: 'textile', nom: 'Textile', intro: 'Tissus, fils et broderies : des pièces uniques faites main.' },
@@ -29,3 +31,6 @@ export const CATEGORIES = [
   { id: 'objets-deco', nom: 'Objets décoratifs', intro: 'De petits objets peints et façonnés pour égayer la maison.' },
   { id: 'divers', nom: 'Divers', intro: 'Des créations qui ne rentrent dans aucune case : petites trouvailles et pièces originales.' },
 ] as const;
+
+// Les rubriques affichées sur le site (Bijoux retirée si bijouxVisible vaut false).
+export const CATEGORIES = TOUTES_CATEGORIES.filter((c) => SITE.bijouxVisible || c.id !== 'bijoux');
