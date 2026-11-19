@@ -1,7 +1,7 @@
 ---
 titre: "Petit domino"
 categorie: bijoux
-# image: ./petit-domino.jpg   (caché temporairement le 2026-11-11 — enlever « # » pour remettre en ligne)
+image: ./petit-domino.jpg
 technique: "Bracelet macramé en coton ciré tressé"
 prix: 1
 disponible: true
